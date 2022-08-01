@@ -50,3 +50,19 @@ const bodyClickHandle = (e) => {
 };
 $(".bx-x").on("click", searchCancelHandle);
 $("body").on("click", bodyClickHandle);
+
+
+// subMenu
+const subMenuUl = $('.header_subMenu_box ul');
+const menu = $('.header_menu_box ul li');
+$(function(){
+  cate.book.forEach(bookItem=>{
+    let li = $(`<li>${bookItem}</li>`);
+    subMenuUl.append(li);
+  })
+})
+
+const menuMouseenterHandle = (e)=>{
+console.log($(e.currentTarget).children().attr('name'))
+}
+menu.on('mouseenter', menuMouseenterHandle)

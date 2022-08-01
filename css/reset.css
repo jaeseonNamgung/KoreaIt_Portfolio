@@ -207,3 +207,44 @@ header {
     left:90%;
     top:30%;
 }
+
+/* footer */
+footer{
+    width:100%;
+    position:relative;
+    height:300px;
+}
+footer .sub_footer_box address,
+footer .sub_footer_box div{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+footer .sub_footer_box .footer_logo_box{
+    width:150px;
+    height:150px;
+    
+    left:8%;
+}
+footer .footer_logo_box img{
+    width:100%;
+}
+footer .sub_footer_box .footer_information_box{
+    left:20%;   
+}
+footer .sub_footer_box .footer_information_box p{
+    padding:15px 0;
+    color:rgb(132, 131, 131);
+    font-size:22px;
+    letter-spacing: 3px;
+}
+
+footer .sub_footer_box .footer_snsIcon_box{
+    right:8%;
+
+}
+footer .sub_footer_box .footer_snsIcon_box i{
+    color:gray;
+    width:100px;
+    cursor: pointer;
+}

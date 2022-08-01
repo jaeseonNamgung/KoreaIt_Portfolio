@@ -11,12 +11,13 @@
     <script defer src="./js/header.js"></script>
     <script defer src="./js/banner.js"></script>
     <script defer type="module" src="./js/article.js"></script>
-
+    <script defer  src="./js/category.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
+   
 
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
@@ -37,11 +38,14 @@
             <div class="header_menu_box">
               <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">국내도서</a></li>
-                <li><a href="#">외국</a></li>
-                <li><a href="#">eBook</a></li>
-                <li><a href="#">중고샵</a></li>
+                <li><a name="book" href="#">국내도서</a></li>
+                <li><a name="foreign " href="#">외국</a></li>
+                <li><a name="eBook" href="#">eBook</a></li>
+                <li><a name="used " href="#">중고샵</a></li>
               </ul>
+            </div>
+            <div class="header_subMenu_box">
+              <ul></ul>
             </div>
             <div class="header_searchAndMenu_box">
               <div class="header_search_box">
@@ -96,6 +100,14 @@
           </div>
         </article>
         <article>
+          <div class="sub_article">
+            <div class="bestseller_title_box"></div>
+            <div class="bestseller_table_box">
+              <table></table>
+            </div>
+          </div>
+        </article>
+        <article>
           <div id="move" class="sub_article">
             <div class="menu_click_box">
               <ul>
@@ -105,50 +117,9 @@
               </ul>
             </div>
             <div class="text_container">
-              <div class="text_content">
-                <table> 
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                </table>
-              </div>
               <div class="notice_box hideBox">
                 <div class="text_content">
                   <table>
-                    
                     <tr>
                       <td>
                         <a href=""
@@ -188,93 +159,120 @@
                   </table>
                 </div>
               </div>
-              <div class="story_box hideBox">
-                <table>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <a href=""
-                        >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
-                        김혜빈, 하진구 실장이었다.</a
-                      >
-                    </td>
-                    <td><span>2022.05.17</span></td>
-                  </tr>
-                </table>
+              <div class="FAQ_box">
+                <div class="text_content">
+                  <table>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                  </table>
+                </div>
               </div>
-            </div>
-          </div>
-        </article>
 
-        <article>
-          <div class="sub_article_box">
-            <div class="article_left_box">
-              <div class="article_left_title_box">
-                <h1>학생회 <span>소개</span></h1>
-              </div>
-              <div class="article_left_img_box">
-                <img
-                  src="./image/B_C39D411BA6D249F18C19E012C11E92A0.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="aritcle_left_introduce_box">
-                <p><i class="bx bx-user bx-md"></i><span>홍길동</span></p>
-                <p><i class="bx bx-book bx-md"></i><span>컴퓨터 전공</span></p>
-                <p>
-                  <i class="bx bx-envelope bx-md"></i
-                  ><span>abcssss@google.com</span>
-                </p>
-                <p><i class="bx bx-chat bx-md"></i><span>위챗</span></p>
-              </div>
-            </div>
-            <div class="article_right_box">
-              <div class="article_right_title_box">
-                <div class="article_right_content_box">
-                  <h1>about</h1>
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s
-                  </p>
-                </div>
-                <div class="article_right_btns_box">
-                  <button>학생회 소개</button>
-                  <button>조직도 소개</button>
+              <div class="usage_information_box hideBox">
+                <div class="text_content">
+                  <table>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a href=""
+                          >부부가 선택한 파트너는 공간 디자인 스튜디오 콩과하의
+                          김혜빈, 하진구 실장이었다.</a
+                        >
+                      </td>
+                      <td><span>2022.05.17</span></td>
+                    </tr>
+                    
+                  </table>
                 </div>
               </div>
-              <div class="article_right_content"></div>
             </div>
           </div>
         </article>
       </section>
+      <footer>
+        <div class="sub_footer_box">
+          <div class="footer_logo_box">
+            <img src="./images/book_logo.ico" alt="">
+          </div>
+          <address class="footer_information_box">
+            <p>
+              사업자번호:123-45-67890 대표 : 홍길동
+            </p>
+            <p>
+              (04100)서울특별시 마포구 서강로 136(노고산동 106-5)
+            </p>
+            <p>
+              전화:010-1234-5678 팩스 : 02-123-4567 이메일 : support@book.com
+            </p>
+          </address>
+          <div class="footer_snsIcon_box bx-lg">
+            <i class='bx bxl-facebook-square '></i>
+            <i class='bx bxl-twitter' ></i>
+            <i class='bx bxl-instagram' ></i>
+            <i class='bx bxl-youtube' ></i>
+          </div>
+        </div>
+      </footer>
     </div>
   </body>
-  <script></script>
 </html>
