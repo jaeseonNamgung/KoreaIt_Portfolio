@@ -1,4 +1,4 @@
-const cate= {
+const subMenus= {
   "book":[
     "유아",
     "어린이",

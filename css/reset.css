@@ -44,6 +44,7 @@ header {
     justify-content: center;
     align-items: center;
     gap:20px;
+    position:relative;
 }
 
 .header .header_log_box {
@@ -79,8 +80,11 @@ header {
 }
 .header .header_sub_bottom_box .header_menu_box ul{
     display: flex;
+    justify-content: space-between;
+    width:770px;
     gap:100px;
     height:100%;
+
 }
 
 .header .header_searchAndMenu_box
@@ -95,7 +99,7 @@ header {
 }
 
 .header .header_menu_box ul li a{
-    padding:5px 10px;
+    padding:10px 5px 10px 0;
     font-size:24px;
     font-family: 'Cormorant Garamond', serif;
 }
@@ -206,6 +210,40 @@ header {
     position:absolute;
     left:90%;
     top:30%;
+}
+
+
+/* subMenu */
+.header .header_subMenu_box{
+    width:800px;
+    position:absolute;
+    top:160%;
+    background-color: rgba(255, 255, 255, 0.811);
+    overflow: hidden;
+    height:0;
+    transition-duration:1s;
+}
+.header .header_subMenu_box ul{
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:20px;
+   
+}
+.header .header_subMenu_box ul li{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.header .header_subMenu_box.mouseEnter{
+    height:500px;
+    transition-duration:1s;
+}
+.header .header_subMenu_box ul li:hover{
+    padding-bottom:5px;
+    border-bottom:2px solid #7D9D9C; 
 }
 
 /* footer */

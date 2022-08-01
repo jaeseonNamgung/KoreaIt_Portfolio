@@ -51,18 +51,39 @@ const bodyClickHandle = (e) => {
 $(".bx-x").on("click", searchCancelHandle);
 $("body").on("click", bodyClickHandle);
 
-
 // subMenu
-const subMenuUl = $('.header_subMenu_box ul');
-const menu = $('.header_menu_box ul li');
-$(function(){
-  cate.book.forEach(bookItem=>{
+const menu = $(".header_menu_box ul li");
+const subMenuBox = $('.header_subMenu_box');
+const subMenuUl = $(".header_subMenu_box ul");
+let subMenuKey;
+const subMenuHandle = (subMenuKey) => {
+  subMenuUl.children().remove();
+  subMenus[subMenuKey].forEach((bookItem) => {
     let li = $(`<li>${bookItem}</li>`);
     subMenuUl.append(li);
-  })
-})
-
-const menuMouseenterHandle = (e)=>{
-console.log($(e.currentTarget).children().attr('name'))
+  });
+};
+const subMenuStyle = (subMenuTag)=>{
+  let left = menu.offset().left;
+  subMenuBox.css({'left':left});
 }
-menu.on('mouseenter', menuMouseenterHandle)
+
+const menuMouseenterHandle = (e) => {
+  subMenuKey = $(e.currentTarget).children().attr("name");
+  if(subMenuKey === undefined) return;
+  subMenuBox.addClass('mouseEnter');
+  subMenuBox.on('mouseenter', ()=>subMenuBox.addClass('mouseEnter'));
+
+
+  subMenuHandle(subMenuKey);
+  subMenuStyle(e.currentTarget);
+};
+const menuMouseLeaveHandle = ()=>{
+  subMenuBox.removeClass('mouseEnter');
+  subMenuBox.on('mouseleave', ()=> subMenuBox.removeClass('mouseEnter'));
+}
+
+
+
+menu.on("mouseenter", menuMouseenterHandle);
+menu.on('mouseleave',menuMouseLeaveHandle )
