@@ -7,7 +7,7 @@
 }
 
 .banner .banner_imgs {
-    width: 1400px;
+    width: 1440px;
     height: 400px;
     margin: auto;
     position: relative;
@@ -87,9 +87,18 @@
     transform: translateY(-50%);
     cursor: pointer;
 }
-
+.slider_box .bxs-chevron-left:hover,
+.slider_box .bxs-chevron-right:hover{
+    transition-duration:1s;
+}
+.slider_box .bxs-chevron-left:hover{
+    left:-10px;
+}
+.slider_box .bxs-chevron-right:hover{
+    right:-10px;
+}
 .slider_box .bxs-chevron-left {
-    left: 0;
+    left: 0;  
 }
 
 .slider_box .bxs-chevron-right {
@@ -98,8 +107,10 @@
 
 
 /* article style */
+
 article {
-    width: 1400px;
+    width: 1440px;
+    margin:auto;
 }
 
 article:nth-child(1) {
@@ -118,6 +129,7 @@ article:nth-child(1) .categories_box ul {
     padding: 20px 0;
     font-size: 23px;
     margin-bottom: 30px;
+    
 }
 
 article:nth-child(1) .categories_box ul li {
@@ -152,25 +164,35 @@ article:nth-child(1) .categories_box ul li:hover {
 
 article:nth-child(1) .recommend_books_box {
     width: 100%;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     gap: 30px;
     margin-bottom: 50px;
+    cursor: pointer;
+    
 }
 
 article:nth-child(1) .recommend_books_box .recommend_books_img {
+    padding:40px 0;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
     height: 100%;
+    border:1px solid rgba(214, 211, 211, 0.817);
+    
 }
 
 article:nth-child(1) .recommend_books_box .recommend_books_img img {
     width: 50%;
     height: 200px;
     margin-bottom: 20px;
+}
+article:nth-child(1) .recommend_books_box .recommend_books_img img:hover{
+    transform: scale(1.2);
+    transition-duration:1s;
 }
 
 article:nth-child(1) .recommend_books_box .recommend_books_img h2 {
@@ -220,24 +242,25 @@ article:nth-child(1) .pagiNation_box ul li.pagiClick {
 /* article2 */
 
 article:nth-child(2) {
-    width: 100%;
-    background-color: #fcf8e875;
     height: 900px;
-    position:relative;
+    padding:50px 0;
 }
 
 
 article:nth-child(2) .sub_article {
-    width: 1400px;
-    position: absolute;
-    left:50%;
-    top:50%;
-    transform: translate(-50%, -50%);
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    border-radius: 30% 30% 0 0;
-    background-color: #fff;
+    height:100%;
+    margin:auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
+article:nth-child(2) .sub_article .basteseller_left_box{
+    width: 40%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background-color: #fff;
+    border-radius:30px;
+    background-color: #d6e4cf6a;
+}
 article:nth-child(2) .sub_article .bestseller_title_box {
     width: 100%;
     text-align: center;
@@ -245,7 +268,7 @@ article:nth-child(2) .sub_article .bestseller_title_box {
 }
 
 article:nth-child(2) .sub_article .bestseller_title_box h1 {
-    font-size: 40px;
+    font-size: 30px;
 }
 
 article:nth-child(2) .sub_article .bestseller_table_box {
@@ -257,7 +280,7 @@ article:nth-child(2) .sub_article .bestseller_table_box table {
     width: 100%;
     padding-bottom:20px;
     height:100%;
-    padding:0 20px;
+    padding:0 10px 20px;
 }
 
 article:nth-child(2) .sub_article .bestseller_table_box tr{
@@ -270,17 +293,22 @@ article:nth-child(2) .sub_article .bestseller_table_box tr{
     padding: 20px;
     cursor:pointer;
     overflow: hidden;
+    
 }
 
 
 article:nth-child(2) .sub_article .bestseller_table_box tr:hover{
-    border-bottom:1px solid rgb(199, 197, 197);
+    border-bottom:2px solid #1f2020;
     
+}
+article:nth-child(2) .sub_article .bestseller_table_box tr:visited{
+    border-bottom:2px solid #1f2020;
 }
 article:nth-child(2) .sub_article .bestseller_table_box tr td{
     position: absolute;
     animation-name: ani_bestseller;
     animation-duration: 2s;
+    
 }
 @keyframes ani_bestseller{
     0%{
@@ -300,7 +328,7 @@ article:nth-child(2) .sub_article .bestseller_table_box tr td:nth-child(1)::befo
     text-align: center;
     font-size: 20px;  
     line-height: 40px;
-    background-color: #fcf8e875;
+    background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     border-radius: 10px;
     margin-right:30px;
@@ -311,8 +339,8 @@ article:nth-child(2) .sub_article .bestseller_table_box tr td:nth-child(1){
     left:5px;
 }
 article:nth-child(2) .sub_article .bestseller_table_box tr td:nth-child(2){
-    background-color: #fcf8e875;
-    color:#ea441e;
+    background-color: #fff;
+    color:#7D9D9C;
     text-align: center;
     line-height: 40px;
     height: 40px;
@@ -323,17 +351,53 @@ article:nth-child(2) .sub_article .bestseller_table_box tr td:nth-child(2){
     right:5px;
 }
 
+article:nth-child(2) .sub_article .basteseller_right_box{
+   
+    width:50%;
+    height:97%;
+    border:1px solid #afcecd81;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    padding:30px;
+}
+article:nth-child(2) .sub_article .basteseller_right_box h2{
+    text-align: start;
+    font-size: 26px;
+    text-align: center;
+}
+article:nth-child(2) .sub_article .basteseller_right_box img{
+    width:50%;
+    height:50%;
+}
+article:nth-child(2) .sub_article .basteseller_right_box .text_book_box{
+    text-align: center;
+    font-size: 20px;
+}
+article:nth-child(2) .sub_article .basteseller_right_box p:nth-child(2){
+    padding-top:10px;
+}
+article:nth-child(2) .sub_article .basteseller_right_box p:nth-child(3){
+    padding-top:20px;
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+article:nth-child(2) .sub_article .basteseller_right_box p:nth-child(4){
+    color:rgb(11, 11, 216);
+}
 /* article3 */
 
 article:nth-child(3) {
-    width: 100%;
+    width:100%;
     height: 560px;
     padding: 30px 0 30px 0;
     background-color: #d6e4cf6a;
 }
 
 article:nth-child(3)>.sub_article {
-    width: 1200px;
+    width:1440px;
     height: 100%;
     margin: 0 auto;
     position: relative;
@@ -344,7 +408,6 @@ article:nth-child(3)>.sub_article>div {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 article:nth-child(3)>.sub_article>.menu_click_box {

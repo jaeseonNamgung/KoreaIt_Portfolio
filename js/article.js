@@ -1,5 +1,5 @@
 const getBooksAPI = async (queryType, searchTarget, maxResults, start) => {
-  const URL = `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsunnamgung1544001&QueryType=${queryType}&MaxResults=${maxResults}&Start=${start}&SearchTarget=${searchTarget}&output=js&Version=20131101`;
+  const URL = `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsunnamgung1544001&QueryType=${queryType}&MaxResults=${maxResults}&Start=${start}&SearchTarget=${searchTarget}&output=js&Version=20131101&Cover=Big`;
   try {
     const bookDatas = await fetch(URL);
     const datas = await bookDatas.json();
@@ -147,16 +147,17 @@ const bestseller_table = $(".bestseller_table_box table");
 
 $(function () {
   bestsellerHandle();
+  const img = $(".basteseller_right_box img");
+  img.css('display', 'none');
+
 });
-let i = 0;
-const bestsellerHandle = async() => {
-  console.log(i);
-  console.log( bestseller_table.children())
+let bastsellerIndex = 0;
+const bestsellerHandle = async () => {
   bestseller_title.children().remove();
   bestseller_table.children().remove();
   let datas;
   queryType = "Bestseller";
-  searchTarget = categorieList[i].id;
+  searchTarget = categorieList[bastsellerIndex].id;
   start = 1;
   maxResults = 8;
 
@@ -169,24 +170,100 @@ const bestsellerHandle = async() => {
   let bookTitle;
   let reviewRank;
   let tableTr;
+
   datas.item.forEach((data, i) => {
-    tableTr = $('<tr></tr>');
-    bookTitle = $(`<td>${data.title.length<50?data.title:data.title.slice(0,50)+'...'}</td>`);
+    tableTr = $("<tr></tr>");
+    bookTitle = $(
+      `<td id=${i}>${
+        data.title.length < 10 ? data.title : data.title.slice(0, 10) + "..."
+      }</td>`
+    );
     reviewRank = $(`<td>평점: ${data.customerReviewRank}</td>`);
     tableTr.append(bookTitle);
     tableTr.append(reviewRank);
     bestseller_table.append(tableTr);
   });
-  i = (i + 1) % categorieList.length;
+
+  bastsellerSearchHandle(datas);
+  bastsellerIndex = (bastsellerIndex + 1) % categorieList.length;
 };
 
-let bestsellerInterval = setInterval(() => {
-  bestsellerHandle();
-}, 10000);
+const TrHandle = (bookData) => {
+
+  const h2 = $(".basteseller_right_box h2");
+  const img = $(".basteseller_right_box img");
+  const p = $(".basteseller_right_box p");
+  img.css('display', 'block');
+  $(h2).html(bookData.title);
+  $(img).attr("src", bookData.cover);
+  p.eq(0).html(bookData.author);
+  p.eq(1).html(bookData.description);
+  p.eq(2).html("원가: " + bookData.priceStandard);
+  p.eq(3).html("할인가: " + bookData.priceSales);
+};
+
+let clickTrTempCount = 0;
+const clickTrHandle = (e) => {
+  let index = $(e.currentTarget).children().eq(0).attr("id");
+  let bookData = e.data.datas.item[index];
+  
+  $("article:nth-child(2) .sub_article .bestseller_table_box tr")
+  .eq(clickTrTempCount)
+  .children()
+  .first()
+  .css("color", "black");
+  $("article:nth-child(2) .sub_article .bestseller_table_box tr")
+      .eq(index)
+      .children()
+      .first()
+      .css("color", "red");
+    bsCount = index;
+  TrHandle(bookData);
+  clickTrTempCount = index;
+};
+
+let bsCount = 0;
+let bestsellerInterval;
+const bastsellerSearchHandle = (datas) => {
+  bestsellerInterval = setInterval(() => {
+    // bestsellerHandle();
+    if (datas.item.length <= bsCount) {
+      $("article:nth-child(2) .sub_article .bestseller_table_box tr")
+        .eq(bsCount - 1)
+        .children()
+        .first()
+        .css("color", "black");
+      clearInterval(bestsellerInterval);
+      bestsellerHandle(bastsellerIndex);
+      bsCount = 0;
+      return;
+    }
+    const bestseller_tableTr = $(".bestseller_table_box table tr");
+    bestseller_tableTr.on("click", { datas}, clickTrHandle);
+    let data = datas.item[bsCount];
+    TrHandle(data);
+    $("article:nth-child(2) .sub_article .bestseller_table_box tr")
+      .eq(bsCount - 1)
+      .children()
+      .first()
+      .css("color", "black");
+    $("article:nth-child(2) .sub_article .bestseller_table_box tr")
+      .eq(bsCount)
+      .children()
+      .first()
+      .css("color", "red");
+      clickTrTempCount = bsCount;
+      bsCount++;
+  }, 5000);
+  return;
+};
 
 // article3
 const menuList = $("article:nth-child(3)>.sub_article>.menu_click_box ul li");
 const textBox = $("article:nth-child(3)>.sub_article>.text_container>div");
+const tableClick = $(
+  "article:nth-child(3)>.sub_article>.text_container table a"
+);
 const clickMenuListHandle = (e) => {
   $(menuList).removeClass("article_click_menu");
   $(e.currentTarget).addClass("article_click_menu");
@@ -194,4 +271,6 @@ const clickMenuListHandle = (e) => {
   textBox.addClass("hideBox");
   textBox.eq(listIndex).removeClass("hideBox");
 };
+
+tableClick.on("click", (e) => e.preventDefault());
 menuList.on("click", clickMenuListHandle);

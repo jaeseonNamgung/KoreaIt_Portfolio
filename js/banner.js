@@ -43,7 +43,7 @@ rightBtn.on('click', clickRightHandle);
 let autoSliderImg = setInterval(() => {
     imgNum =imgNum >= imgs.length-1 ? 0 : imgNum+1;
     sliderImgHandle();
-}, 3000);
+}, 4000);
 
 
 
